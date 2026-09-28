@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#102a43">
+  <link rel="manifest" href="/s/manifest.webmanifest">
+  <link rel="icon" href="/s/icon.svg" type="image/svg+xml">
+  <title>Secure Photo</title>
+  <link rel="stylesheet" href="/s/styles.css">
+</head>
+<body>
+  <main class="card" aria-labelledby="title">
+    <header><div class="mark">SP</div><div><p class="eyebrow">Личная передача</p><h1 id="title">Secure Photo</h1></div></header>
+    <p id="intro" class="muted">Фото шифруется в этом браузере и отправляется только получателю.</p>
+    <section id="missing" class="notice hidden">Откройте ссылку, которую вам прислали.</section>
+    <section id="sender" class="hidden">
+      <label class="picker" for="photo"><span class="picker-title">Выбрать фото</span><span class="picker-hint">JPEG, HEIC или любое изображение</span></label>
+      <input id="photo" type="file" accept="image/*">
+      <img id="preview" class="preview hidden" alt="Предпросмотр выбранного фото">
+      <div class="grid">
+        <label>Просмотры<select id="maxViews"><option value="1">1 просмотр</option><option value="3">3 просмотра</option><option value="10">10 просмотров</option><option value="0">Без лимита</option></select></label>
+        <label>Срок жизни<select id="ttl"><option value="3600">1 час</option><option value="86400">24 часа</option><option value="604800">7 дней</option></select></label>
+      </div>
+      <button id="send" disabled>Зашифровать и отправить</button>
+      <div id="progress" class="status" role="status" aria-live="polite"></div>
+    </section>
+    <footer>Содержимое фото не покидает устройство до шифрования.</footer>
+  </main>
+  <script type="module" src="/s/app.js"></script>
+</body>
+</html>

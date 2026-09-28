@@ -1,0 +1,12 @@
+:80 {
+	encode gzip
+	@api path /api/* /healthz
+	handle @api {
+		reverse_proxy server:3000
+	}
+	handle_path /s/* {
+		root * /srv/web
+		file_server
+	}
+	redir / /s/ permanent
+}
